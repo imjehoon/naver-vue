@@ -15,6 +15,7 @@
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Vue.js Dev Tools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 - [Node.js](https://nodejs.org/ko/)
+- [작성자 js샘플](https://joshua1988.github.io/vue-camp/)
 
 ## VSCode 플러그인 목록
 
