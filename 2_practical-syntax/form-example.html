@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+</head>
+<body>
+    <div id="app">
+        <form>
+            <div>
+                <label for="username">ID: </label>
+                <input id="username" type="text" v-model="id" placeholder="email"/>
+            </div>
+
+            <div>
+                <label for="password"> PW:</label>
+                <input id="password" type="password" v-model="pw" placeholder="password"/>
+            </div>
+
+            <div>
+                <button type="submit" v-on:click.prevent="loginUser" >login</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                str: 'hello vue.js',
+                id: '',
+                pw: '',
+            },
+            components: {
+                //'컴포넌트 이름': 컴포넌트 내용,
+                'app-header': {
+                    template:'<h1>vue form</h1>'
+                }
+            },
+            methods: {
+                // 기본적으로 event가 넘어옴
+                loginUser: function(event) {
+                    //console.log(event);
+                    var url = 'https://jsonplaceholder.typicode.com/users';
+                    var data = {
+                        id: this.id,
+                        pw: this.pw
+                    }
+                    axios.post(url, data)
+                      .then(function(response) {
+                        console.log(response);
+
+                      })
+                      .catch(function(error) {
+                        console.log(error);
+                        
+                      });
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>
