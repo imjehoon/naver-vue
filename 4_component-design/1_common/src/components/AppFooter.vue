@@ -1,1 +1,3 @@
-TODO: `<footer>Naver Tech Share</footer>`를 표현하는 컴포넌트를 등록하고 화면에 표현해보세요.
+<template>
+   <footer>Naver Tech Share</footer>
+</template>
