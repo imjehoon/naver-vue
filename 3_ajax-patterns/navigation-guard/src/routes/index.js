@@ -34,8 +34,21 @@ export default new Router({
     {
       path: '/jobs',
       component: () => import('../views/JobsView.vue'),
-      beforeEnter: function() {
+      beforeEnter: function(to, from, next) {
         // TODO: 페이지에 진입하기 전에 'FETCH_JOBS' API 함수를 호출하여 데이터를 스토어에 저장해보세요.
+        bus.$emit('on:loading-bar');
+        store
+          .dispatch('FETCH_JOBS')
+          .then(function(response) {
+            console.log(response);
+            next();
+          })
+          .catch(function(error){
+            console.log(error);
+          })
+          .finally(function(){
+            bus.$emit('off:loading-bar');
+          });
       },
     },
   ],
